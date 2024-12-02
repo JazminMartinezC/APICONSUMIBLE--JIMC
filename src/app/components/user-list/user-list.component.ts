@@ -43,12 +43,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
   
   loadData(): void {
-    if (this.activeData === 'users') {
-      this.userService.getUsers().subscribe((data) => {
-        this.dataSource.data = data;
-        this.displayedColumns = ['id', 'name', 'email', 'role'];
-      });
-    } else {
+  
       this.userService.getNews().subscribe((data) => {
         // Añadir un ID autoincrementable a cada noticia
         const articlesWithId = data.articles.map((article: any, index: number) => ({
@@ -58,7 +53,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
         this.dataSource.data = articlesWithId;
         this.displayedColumns = ['id', 'author', 'title', 'imagen', 'info', 'edit', 'delete'];
        });
-    }
+  
   }
   
   // Método para manejar acciones de botones

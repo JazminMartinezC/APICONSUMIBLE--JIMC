@@ -66,9 +66,9 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class UserService {
   private apiUrl = 'https://api.escuelajs.co/api/v1/users';
-  private newsApiUrl = 'https://newsapi.org/v2/top-headlines?q=trump';
-  //private apiKey = 'b88050a0cf334cb5b4b827d63dff6f8d';
-  private apiKey = 'eb98591c9c824958aa14d5b885b78ed9';
+  private newsApiUrl = 'https://newsapi.org/v2/top-headlines?q=trump&apiKey=b88050a0cf334cb5b4b827d63dff6f8d';
+  private apiKey = 'b88050a0cf334cb5b4b827d63dff6f8d';
+  //ivate apiKey = 'eb98591c9c824958aa14d5b885b78ed9';
   private loggedInUser: any = null;
 
   constructor(
@@ -120,7 +120,7 @@ export class UserService {
 
   // Obtener noticias
   getNews(): Observable<any> {
-    const headers = new HttpHeaders().set('X-Api-Key', this.apiKey);
-    return this.http.get<any>(this.newsApiUrl, { headers });
+   // const headers = new HttpHeaders().set('X-Api-Key', this.apiKey);
+    return this.http.get<any>(this.newsApiUrl);
   }
 }
